@@ -14,30 +14,17 @@ variable "role_arn" {
   description = "Role that will be used to create EKS"
 }
 
-variable "eks_subnets_id_1" {
-  description = "ID of first EKS subnet"
+variable "eks_network_ids" {
+  description = "List of IDs of EKS networks"
 }
 
-variable "eks_subnets_id_2" {
-  description = "ID of second EKS subnets"
-}
-
-variable "nodegroup_instance_type" {
-  description = "Type of VM that will be deployed at EKS"
-}
-
-variable "nodegroup_desired_size" {
-  description = "Number of desired size of EKS Nodegroup"
-}
-
-variable "nodegroup_max_size" {
-  description = "Number of maximum size of EKS Nodegroup"
-}
-
-variable "nodegroup_min_size" {
-  description = "Number of minimum size of EKS Nodegroup"
-}
-
-locals {
-  eks_networks_id_list = [var.eks_subnets_id_1, var.eks_subnets_id_2]
+variable "nodegroup" {
+  type = map(object({
+    nodegroup_name = string
+    nodegroup_instance_type = list(string)
+    nodegroup_desired_size = string
+    nodegroup_max_size = string
+    nodegroup_min_size = string
+  }))
+  description = "Nodegroup info"
 }
