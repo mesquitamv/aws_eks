@@ -12,7 +12,7 @@ module "aws_eks" {
   eks_version      = # Cluster Version
   node_group_name  = # Name of nodegroup
   role_arn         = # Role that will be used to create EKS
-  subnet_ids       =  # List of subnet IDs
+  subnet_ids       = # List of subnet IDs
   nodegroup        = # List of nodegroup specs
 }
 ```
