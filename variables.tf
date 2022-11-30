@@ -6,10 +6,6 @@ variable "eks_version" {
   description = "Version of EKS"
 }
 
-variable "node_group_name" {
-  description = "Name of EKS Nodegroup name"
-}
-
 variable "role_arn" {
   description = "Role that will be used to create EKS"
 }
